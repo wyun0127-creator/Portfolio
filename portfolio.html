@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>汪韵™｜Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Permanent+Marker&family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/portrait-hero.jpg" as="image" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="portfolio-page">
+  <script>
+    if (sessionStorage.getItem('fromWelcome') === '1') document.body.classList.add('is-page-turn');
+  </script>
+  <div class="portfolio-arrival" aria-hidden="true"></div>
+  <div class="grain" style="display:none"></div>
+  <div class="grid-overlay" style="display:none"></div>
+  <canvas id="click-spark" aria-hidden="true"></canvas>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <nav class="nav">
+    <a class="brand" href="#home"><b>汪韵</b><span>™</span> Portfolio</a>
+    <div class="nav-mid">
+      <a href="#home">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume & Contact</a>
+    </div>
+    <button class="back-to-top" type="button" aria-label="回到顶部">↑ 返回顶部</button>
+    <a class="nav-cta" href="#resume">Get in touch <i>↗</i></a>
+  </nav>
+
+  <header id="home" class="hero">
+    <img class="hero-photo" src="assets/portrait-hero.jpg" alt="汪韵" fetchpriority="high" decoding="sync" />
+    <div class="hero-photo-mask"></div>
+    <div class="hero-inner">
+      <p class="hero-outline">汪韵</p>
+
+      <div class="hero-card">
+        <p class="hero-role">数据策略 · 电商运营 · 社媒洞察 · 影片创意执行</p>
+        <p class="hero-desc">具备 4 段相关实习经历，用数据讲述 storyline，用影片表达创意内容。</p>
+        <ul class="hero-edu">
+          <li><b>上海理工大学</b> · 新闻传播学（硕士） <span>｜ 2024 – 2027</span></li>
+          <li><b>浙江工商大学杭州商学院</b> · 新闻学（学士） <span>｜ 2020 – 2024</span></li>
+        </ul>
+        <div class="hero-contact">
+          <a href="tel:13758086181"><i>📞</i> 13758086181</a>
+          <a href="mailto:871742493@qq.com"><i>✉️</i> 871742493@qq.com</a>
+          <span><i>💬</i> Wyun0127</span>
+        </div>
+      </div>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Content</span><span>·</span><span>Growth</span><span>·</span><span>Strategy</span><span>·</span><span>Insight</span><span>·</span><span>Media</span><span>·</span><span>Storyline</span><span>·</span><span>Creative</span><span>·</span><span>Data</span><span>·</span>
+        <span>Content</span><span>·</span><span>Growth</span><span>·</span><span>Strategy</span><span>·</span><span>Insight</span><span>·</span><span>Media</span><span>·</span><span>Storyline</span><span>·</span><span>Creative</span><span>·</span><span>Data</span><span>·</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="experience" class="section journey experience-intro">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">Part 02 / Experience</p>
+        <h2 class="timeline-heading">实习经历</h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <img class="timeline-walker" src="assets/walking-girl.webp" alt="行走的人物动画" />
+      <div class="timeline-items">
+        <div class="tl-item">
+          <span class="tl-when">2023.06 – 2023.10</span>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-logo"><img src="assets/zhejiang-daily.jpeg" alt="浙江日报" /></div>
+            <b>浙江日报</b>
+            <p>采编实习记者</p>
+            <span class="tl-tag">Editorial</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-when">2024.01 – 2024.04</span>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-logo"><img src="assets/hangzhou-media.jpeg" alt="杭州网络传媒公司" /></div>
+            <b>杭州网络传媒公司</b>
+            <p>教育频道 · 内容运营</p>
+            <span class="tl-tag amber">Content</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-when">2024.11 – 2025.05</span>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-logo"><img src="assets/syrc.png" alt="上海市青少年研究中心" /></div>
+            <b>上海市青少年研究中心</b>
+            <p>青少年群体 · 用户研究</p>
+            <span class="tl-tag">User Research</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-when">2025.05 – 2025.09</span>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-logo"><img src="assets/xiaohongshu-cutout.png" alt="小红书" /></div>
+            <b>小红书</b>
+            <p>乳制品行业运营</p>
+            <span class="tl-tag red">commercialization</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-when">2025.10 – 2026.02</span>
+          <span class="tl-dot"></span>
+          <div class="tl-card">
+            <div class="tl-logo"><img src="assets/kantar.png" alt="Kantar" /></div>
+            <b>凯度 Kantar</b>
+            <p>社媒聆听 · 数据分析</p>
+            <span class="tl-tag amber">Social Listening</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-when">2026.04 – 至今</span>
+          <span class="tl-dot current"></span>
+          <div class="tl-card">
+            <div class="tl-logo"><img src="assets/bytedance.png" alt="字节跳动" /></div>
+            <b>字节跳动 TikTok Shop</b>
+            <p>东南亚跨境电商 · 策略分析</p>
+            <span class="tl-tag blue">SEA Cross-Border</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section experience-hub">
+    <div class="experience-subintro">
+      <p class="section-desc exp-desc-left">四段核心实习经历，覆盖跨境电商、商业化运营、社媒研究与用户洞察。</p>
+    </div>
+
+    <div class="exp-grid">
+      <details class="exp-acc" data-url="experience/bytedance.html">
+        <summary class="exp-card">
+          <div class="exp-card-layout">
+            <img src="assets/bytedance.png" alt="字节跳动 logo" />
+            <div class="exp-card-main">
+              <div class="exp-title-row">
+                <h3>字节跳动 TikTok Shop</h3>
+                <span class="exp-when">2026.04 – 2026.10</span>
+              </div>
+              <p class="exp-role">东南亚跨境电商策略分析</p>
+              <p class="exp-summary">聚焦东南亚跨境商家增长，围绕 GMV、广告收入与商家激励政策完成数据分析、策略设计和落地复盘。</p>
+            </div>
+            <div class="exp-more">点击查看详情 <i>↓</i></div>
+          </div>
+        </summary>
+        <div class="exp-inline"><div class="exp-inline-loading">加载详情…</div></div>
+      </details>
+
+      <details class="exp-acc" data-url="experience/kantar.html">
+        <summary class="exp-card">
+          <div class="exp-card-layout">
+            <img class="logo-dark" src="assets/kantar.png" alt="Kantar logo" />
+            <div class="exp-card-main">
+              <div class="exp-title-row">
+                <h3>凯度咨询 Kantar</h3>
+                <span class="exp-when">2025.10 – 2026.02</span>
+              </div>
+              <p class="exp-role">社媒聆听 - 数据分析</p>
+              <p class="exp-summary">围绕行业趋势与消费者洞察，处理百万级社媒数据，并用因子分析、分层聚类、情感分析等支持客户策略判断。</p>
+            </div>
+            <div class="exp-more">点击查看详情 <i>↓</i></div>
+          </div>
+        </summary>
+        <div class="exp-inline"><div class="exp-inline-loading">加载详情…</div></div>
+      </details>
+
+      <details class="exp-acc" data-url="experience/xiaohongshu.html">
+        <summary class="exp-card">
+          <div class="exp-card-layout">
+            <img src="assets/xiaohongshu-cutout.png" alt="小红书 logo" />
+            <div class="exp-card-main">
+              <div class="exp-title-row">
+                <h3>小红书</h3>
+                <span class="exp-when">2025.05 – 2025.09</span>
+              </div>
+              <p class="exp-role">乳制品行业运营&策划（商业化）</p>
+              <p class="exp-summary">以竞价广告为主，优化投放策略与内容种草打法，积累品牌心智与人群资产增长。</p>
+            </div>
+            <div class="exp-more">点击查看详情 <i>↓</i></div>
+          </div>
+        </summary>
+        <div class="exp-inline"><div class="exp-inline-loading">加载详情…</div></div>
+      </details>
+
+      <details class="exp-acc" data-url="experience/syrc.html">
+        <summary class="exp-card">
+          <div class="exp-card-layout">
+            <img src="assets/syrc.png" alt="上海市青少年研究中心 logo" />
+            <div class="exp-card-main">
+              <div class="exp-title-row">
+                <h3>上海市青少年研究中心</h3>
+                <span class="exp-when">2024.11 – 2025.05</span>
+              </div>
+              <p class="exp-role">用户研究</p>
+              <p class="exp-summary">聚焦青少年群体行为、心理与生活学习处境，结合社媒舆情和调查问卷，形成 10+ 份报告。</p>
+            </div>
+            <div class="exp-more">点击查看详情 <i>↓</i></div>
+          </div>
+        </summary>
+        <div class="exp-inline"><div class="exp-inline-loading">加载详情…</div></div>
+      </details>
+    </div>
+  </section>
+
+  <section id="projects" class="section projects-hub">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">Part 04 / Projects</p>
+        <h2>项目经历</h2>
+        <p class="section-desc projects-desc-left">学术、公益、影像，实习之外的持续投入。</p>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+      <a class="proj-card" href="projects/wuyu.html">
+        <span class="tag amber">学术研究</span>
+        <div class="proj-cover research" style="background-image:url('assets/proj-gongyi.jpg')"><span>吴语方言</span><small>Wu Dialect · 2022 – 2024</small></div>
+        <h3>吴语传承的生态危机及保护路径研究</h3>
+        <p>国家级大学生创新创业项目（结项），围绕吴语传承困境和保护路径开展 <b>田野调查</b>、<b>问卷调查</b> 与 <b>深度访谈</b>，最终发表 <b>省级论文 1 篇</b>、<b>调研报告 2 篇</b>。</p>
+        <div class="proj-more">Enter project <i>→</i></div>
+      </a>
+
+      <a class="proj-card" href="projects/gongyi.html">
+        <span class="tag blue">公益项目</span>
+        <div class="proj-cover welfare" style="background-image:url('assets/proj-wuyu.jpg')"><span>助学+</span><small>Tonglu · 2022 – 2023</small></div>
+        <h3>“桐庐县助学+”公益项目</h3>
+        <p>项目覆盖 <b>30+ 户留守儿童家庭</b>，通过 <b>社企合作</b> 争取赞助资源，组织 <b>10+ 场公益活动</b>，并完成后续 <b>媒体传播</b>。</p>
+        <div class="proj-more">Enter project <i>→</i></div>
+      </a>
+
+      <a class="proj-card wide" href="projects/videos.html">
+        <span class="tag">影片创作</span>
+        <div class="proj-cover film-cover" style="background-image:url('assets/proj-videos.jpg')"><span>Films</span><small>Music Video · Documentary · Short Film</small></div>
+        <h3>视频创意项目</h3>
+        <p>毕业 MV《荷你叁年》<b>总导演</b>（网易云音乐 / B 站上线）、《鲜花》<b>副导演</b>，独立拍摄纪录片《鼓乐》《街艺》与微电影《她平方》。</p>
+        <div class="proj-more">View 6 films <i>→</i></div>
+      </a>
+    </div>
+  </section>
+
+
+  <section id="resume" class="section resume-contact">
+    <div class="rc-inner">
+      <div class="rc-left">
+        <p class="resume-section-label">Resume & Contact</p>
+        <h2><span class="profile-tagline">This is my profile page.</span></h2>
+        <p class="resume-onepage-note">点击右侧，查看我的简历 One Page。</p>
+        <div class="contact-info">
+          <a href="tel:13758086181"><i>📞</i> 13758086181</a>
+          <a href="mailto:871742493@qq.com"><i>✉️</i> 871742493@qq.com</a>
+          <span><i>💬</i> Wyun0127</span>
+        </div>
+      </div>
+      <a class="rc-right" href="assets/wangyun-onepage.png" target="_blank" rel="noopener">
+        <div class="resume-mock resume-preview">
+          <img src="assets/wangyun-resume-preview.png" alt="汪韵 One Page 简历预览" />
+        </div>
+        <span class="resume-btn">View Resume <i>↗</i></span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-top"><span>汪韵™ Portfolio</span><span>Operations · Insight · Storyline</span><span>© 2026 Wangyun. All rights reserved.</span></div>
+  </footer>
+
+  <script>
+    window.addEventListener('pageshow', () => {
+      const fromWelcome = sessionStorage.getItem('fromWelcome') === '1';
+      sessionStorage.removeItem('fromWelcome');
+      if (fromWelcome) {
+        requestAnimationFrame(() => {
+          window.setTimeout(() => document.body.classList.remove('is-page-turn'), 90);
+        });
+      } else {
+        document.body.classList.add('no-arrival-motion');
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

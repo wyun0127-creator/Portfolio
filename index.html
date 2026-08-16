@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome｜汪韵 Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,900&family=Cormorant+Garamond:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="prefetch" href="portfolio.html" />
+  <link rel="preload" href="assets/portrait-hero.jpg" as="image" />
+  <link rel="preload" href="assets/intro/welcome-bg.jpg" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-1.png" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-2.png" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-3.png" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-4.png" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-5.png" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-6.png" as="image" />
+  <link rel="preload" href="assets/intro/collage-cutout-7.png" as="image" />
+</head>
+<body class="welcome-only">
+  <main class="welcome-stage" aria-label="Welcome intro">
+    <div class="welcome-bg" aria-hidden="true"></div>
+    <div class="welcome-photo-collage" aria-hidden="true">
+      <img class="welcome-cutout wc-1" src="assets/intro/collage-cutout-1.png" alt="" decoding="sync" fetchpriority="high" />
+      <img class="welcome-cutout wc-2" src="assets/intro/collage-cutout-2.png" alt="" decoding="sync" fetchpriority="high" />
+      <img class="welcome-cutout wc-3" src="assets/intro/collage-cutout-3.png" alt="" decoding="sync" fetchpriority="high" />
+      <img class="welcome-cutout wc-4" src="assets/intro/collage-cutout-4.png" alt="" decoding="sync" />
+      <img class="welcome-cutout wc-5" src="assets/intro/collage-cutout-5.png" alt="" decoding="sync" />
+      <img class="welcome-cutout wc-6" src="assets/intro/collage-cutout-6.png" alt="" decoding="sync" />
+      <img class="welcome-cutout wc-7" src="assets/intro/collage-cutout-7.png" alt="" decoding="sync" />
+    </div>
+    <button class="welcome-enter" type="button" aria-label="进入作品集">
+      <strong>Slow is Fast</strong>
+      <span class="welcome-hint">点击进入作品集</span>
+      <span class="welcome-name-badge">WANGYUN</span>
+    </button>
+    <div class="welcome-transition" aria-hidden="true"></div>
+  </main>
+  <script>
+    const stage = document.querySelector('.welcome-stage');
+
+    const goPortfolio = () => {
+      if (document.body.classList.contains('is-entering')) return;
+      sessionStorage.removeItem('fromWelcome');
+      document.body.classList.add('is-entering');
+      window.setTimeout(() => {
+        window.location.assign('portfolio.html');
+      }, 280);
+    };
+    stage.addEventListener('click', goPortfolio);
+    stage.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') goPortfolio();
+    });
+  </script>
+</body>
+</html>
