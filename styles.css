@@ -384,7 +384,7 @@ footer{padding:60px 6vw 40px;border-top:1px solid var(--line);margin-top:100px}
 @media (max-width:900px){.gongyi-gallery{grid-template-columns:1fr}.gongyi-shot img,.gongyi-shot.wide img{height:auto}}
 
 .gongyi-page{position:relative}
-.gongyi-page::before{content:"";position:fixed;inset:0;background:url('../assets/gongyi/gongyi-visit-closeup.jpg') center 18%/cover no-repeat;opacity:.11;filter:grayscale(.08) blur(1px);pointer-events:none;z-index:0}
+.gongyi-page::before{content:"";position:fixed;inset:0;background:url('assets/gongyi/gongyi-visit-closeup.jpg') center 18%/cover no-repeat;opacity:.11;filter:grayscale(.08) blur(1px);pointer-events:none;z-index:0}
 .gongyi-page::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(15,14,18,.82) 0%,rgba(15,14,18,.9) 45%,rgba(15,14,18,.96) 100%);pointer-events:none;z-index:1}
 .gongyi-page .detail-nav,.gongyi-page .detail-hero,.gongyi-page .detail-body{position:relative;z-index:2}
 .gongyi-page .detail-block{background:linear-gradient(160deg,rgba(24,22,32,.9) 0%,rgba(31,28,40,.92) 100%);backdrop-filter:blur(6px)}
