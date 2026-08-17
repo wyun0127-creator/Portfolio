@@ -62,7 +62,7 @@ async function loadExperienceDetail(detailsEl) {
     container.innerHTML = '';
     container.appendChild(wrap);
     container.dataset.loaded = '1';
-  } catch (e) {
+  } catch {
     container.innerHTML = '<div class="exp-inline-loading">加载失败，请刷新重试。</div>';
   }
 }
@@ -76,28 +76,50 @@ function closeOtherAccordions(active) {
 function preserveViewportPosition(anchor, beforeTop) {
   requestAnimationFrame(() => {
     const afterTop = anchor.getBoundingClientRect().top;
-    window.scrollBy({ top: afterTop - beforeTop, behavior: 'auto' });
+    const delta = afterTop - beforeTop;
+    if (Math.abs(delta) < 1) return;
+    window.scrollBy({ top: delta, behavior: 'auto' });
   });
+}
+
+function updateAccordionToggleText(detailsEl) {
+  const toggle = detailsEl.querySelector('.exp-more');
+  if (!toggle) return;
+  toggle.innerHTML = detailsEl.open ? '点击关闭 <i>↑</i>' : '点击查看详情 <i>↓</i>';
+}
+
+async function settleAccordionPosition(detailsEl, summary, beforeTop) {
+  preserveViewportPosition(summary, beforeTop);
+
+  const container = detailsEl.querySelector('.exp-inline');
+  const wasLoaded = container?.dataset.loaded === '1';
+  if (!wasLoaded) {
+    await loadExperienceDetail(detailsEl);
+    preserveViewportPosition(summary, beforeTop);
+  }
 }
 
 document.querySelectorAll('details.exp-acc').forEach((d) => {
   const summary = d.querySelector('summary');
   if (!summary) return;
 
-  summary.addEventListener('click', (event) => {
+  updateAccordionToggleText(d);
+
+  summary.addEventListener('click', async (event) => {
     event.preventDefault();
     const beforeTop = summary.getBoundingClientRect().top;
 
     if (d.open) {
       d.open = false;
+      updateAccordionToggleText(d);
       preserveViewportPosition(summary, beforeTop);
       return;
     }
 
     closeOtherAccordions(d);
     d.open = true;
-    preserveViewportPosition(summary, beforeTop);
-    loadExperienceDetail(d).then(() => preserveViewportPosition(summary, beforeTop));
+    document.querySelectorAll('details.exp-acc').forEach(updateAccordionToggleText);
+    await settleAccordionPosition(d, summary, beforeTop);
   });
 });
 

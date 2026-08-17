@@ -799,3 +799,72 @@ html,body{max-width:100%;overflow-x:hidden}
 .hero-photo-mask{background:linear-gradient(90deg,#17141d 0%,rgba(23,20,29,.98) 18%,rgba(23,20,29,.92) 28%,rgba(25,23,31,.78) 39%,rgba(31,28,34,.52) 52%,rgba(38,34,36,.28) 70%,rgba(45,40,40,.1) 88%,rgba(45,40,40,0) 100%)!important}
 .hero:after{background:linear-gradient(90deg,rgba(23,20,29,.1),rgba(255,205,220,.035) 48%,transparent 74%),linear-gradient(180deg,rgba(15,14,18,.02),rgba(15,14,18,.08))!important;mix-blend-mode:screen!important}
 @media (max-width:900px){.hero-photo{left:0!important;width:100%!important;opacity:1!important}}
+
+/* PC layout stabilization: keep frozen nav + hero aligned with content width */
+:root{--portfolio-shell-width:1120px;--portfolio-shell-gutter:clamp(18px,3.6vw,40px)}
+
+.portfolio-page .nav{
+  left:50%!important;
+  right:auto!important;
+  top:18px!important;
+  transform:translateX(-50%)!important;
+  width:min(var(--portfolio-shell-width),calc(100vw - var(--portfolio-shell-gutter) * 2))!important;
+  max-width:calc(100vw - var(--portfolio-shell-gutter) * 2)!important;
+  min-width:0!important;
+  border:1px solid var(--line)!important;
+  border-radius:999px!important;
+  box-sizing:border-box;
+  padding:12px 18px!important;
+}
+
+.portfolio-page .hero{
+  padding:172px var(--portfolio-shell-gutter) 44px!important;
+  min-height:min(900px,92vh);
+}
+
+.portfolio-page .hero-inner,
+.portfolio-page .marquee,
+.portfolio-page .trust,
+.portfolio-page .section,
+.portfolio-page .foot-top{
+  max-width:var(--portfolio-shell-width)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+.portfolio-page .section,
+.portfolio-page .trust{
+  padding-left:var(--portfolio-shell-gutter)!important;
+  padding-right:var(--portfolio-shell-gutter)!important;
+}
+
+.portfolio-page .hero-photo{
+  left:auto!important;
+  right:max(var(--portfolio-shell-gutter),calc((100vw - var(--portfolio-shell-width)) / 2 + var(--portfolio-shell-gutter)))!important;
+  width:min(45vw,560px)!important;
+  height:calc(100% - 104px)!important;
+  top:84px!important;
+  border-radius:30px!important;
+  opacity:.96!important;
+}
+
+.portfolio-page .hero-photo-mask{
+  background:linear-gradient(90deg,#17141d 0%,rgba(23,20,29,.98) 18%,rgba(23,20,29,.9) 30%,rgba(25,23,31,.72) 42%,rgba(31,28,34,.42) 56%,rgba(38,34,36,.18) 74%,rgba(45,40,40,0) 100%)!important;
+}
+
+.portfolio-page .hero-card{max-width:580px!important}
+
+@media (max-width:1280px){
+  .portfolio-page .nav{width:min(1080px,calc(100vw - 28px))!important;padding:11px 16px!important}
+  .portfolio-page .hero{padding-top:166px!important}
+  .portfolio-page .hero-photo{width:min(43vw,500px)!important;right:max(16px,calc((100vw - 1080px)/2 + 16px))!important}
+  .portfolio-page .hero-card{max-width:540px!important}
+}
+
+@media (max-width:1024px){
+  .portfolio-page .nav{width:min(980px,calc(100vw - 20px))!important;gap:10px!important;padding:10px 14px!important}
+  .portfolio-page .hero{padding:154px 20px 40px!important;min-height:auto}
+  .portfolio-page .hero-inner{max-width:980px!important}
+  .portfolio-page .hero-photo{width:min(40vw,420px)!important;right:20px!important;top:92px!important;height:calc(100% - 116px)!important}
+  .portfolio-page .hero-outline{font-size:clamp(66px,8.2vw,116px)!important}
+}
