@@ -8,28 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,900&family=Cormorant+Garamond:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <link rel="prefetch" href="portfolio.html" />
-  <link rel="preload" href="assets/portrait-hero.jpg" as="image" />
-  <link rel="preload" href="assets/intro/welcome-bg.jpg" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-1.png" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-2.png" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-3.png" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-4.png" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-5.png" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-6.png" as="image" />
-  <link rel="preload" href="assets/intro/collage-cutout-7.png" as="image" />
 </head>
 <body class="welcome-only">
   <main class="welcome-stage" aria-label="Welcome intro">
     <div class="welcome-bg" aria-hidden="true"></div>
     <div class="welcome-photo-collage" aria-hidden="true">
-      <img class="welcome-cutout wc-1" src="assets/intro/collage-cutout-1.png" alt="" decoding="sync" fetchpriority="high" />
-      <img class="welcome-cutout wc-2" src="assets/intro/collage-cutout-2.png" alt="" decoding="sync" fetchpriority="high" />
-      <img class="welcome-cutout wc-3" src="assets/intro/collage-cutout-3.png" alt="" decoding="sync" fetchpriority="high" />
-      <img class="welcome-cutout wc-4" src="assets/intro/collage-cutout-4.png" alt="" decoding="sync" />
-      <img class="welcome-cutout wc-5" src="assets/intro/collage-cutout-5.png" alt="" decoding="sync" />
-      <img class="welcome-cutout wc-6" src="assets/intro/collage-cutout-6.png" alt="" decoding="sync" />
-      <img class="welcome-cutout wc-7" src="assets/intro/collage-cutout-7.png" alt="" decoding="sync" />
+      <img class="welcome-cutout wc-1" src="assets/intro/collage-cutout-1.png" srcset="assets/intro/mobile/collage-cutout-1.webp 420w, assets/intro/collage-cutout-1.png 600w" sizes="(max-width: 900px) 48vw, 29vw" alt="" decoding="async" fetchpriority="high" />
+      <img class="welcome-cutout wc-2" src="assets/intro/collage-cutout-2.png" srcset="assets/intro/mobile/collage-cutout-2.webp 420w, assets/intro/collage-cutout-2.png 900w" sizes="(max-width: 900px) 42vw, 39vw" alt="" decoding="async" fetchpriority="high" />
+      <img class="welcome-cutout wc-3" src="assets/intro/collage-cutout-3.png" srcset="assets/intro/mobile/collage-cutout-3.webp 420w, assets/intro/collage-cutout-3.png 900w" sizes="(max-width: 900px) 42vw, 38vw" alt="" decoding="async" fetchpriority="high" />
+      <img class="welcome-cutout wc-4" src="assets/intro/collage-cutout-4.png" srcset="assets/intro/mobile/collage-cutout-4.webp 317w, assets/intro/collage-cutout-4.png 680w" sizes="(max-width: 900px) 38vw, 24vw" alt="" decoding="async" fetchpriority="low" />
+      <img class="welcome-cutout wc-5" src="assets/intro/collage-cutout-5.png" srcset="assets/intro/mobile/collage-cutout-5.webp 389w, assets/intro/collage-cutout-5.png 834w" sizes="(max-width: 900px) 52vw, 31vw" alt="" decoding="async" fetchpriority="low" />
+      <img class="welcome-cutout wc-6" src="assets/intro/collage-cutout-6.png" srcset="assets/intro/mobile/collage-cutout-6.webp 289w, assets/intro/collage-cutout-6.png 619w" sizes="(max-width: 900px) 40vw, 25vw" alt="" decoding="async" fetchpriority="low" />
+      <img class="welcome-cutout wc-7" src="assets/intro/collage-cutout-7.png" srcset="assets/intro/mobile/collage-cutout-7.webp 267w, assets/intro/collage-cutout-7.png 571w" sizes="(max-width: 900px) 32vw, 22vw" alt="" decoding="async" fetchpriority="low" />
     </div>
     <button class="welcome-enter" type="button" aria-label="进入作品集">
       <strong>Slow is Fast</strong>
@@ -40,6 +30,22 @@
   </main>
   <script>
     const stage = document.querySelector('.welcome-stage');
+
+    if (window.matchMedia('(min-width: 901px)').matches) {
+      const idle = window.requestIdleCallback || ((cb) => window.setTimeout(cb, 320));
+      idle(() => {
+        const prefetchPage = document.createElement('link');
+        prefetchPage.rel = 'prefetch';
+        prefetchPage.href = 'portfolio.html';
+        document.head.appendChild(prefetchPage);
+
+        const preloadHero = document.createElement('link');
+        preloadHero.rel = 'preload';
+        preloadHero.as = 'image';
+        preloadHero.href = 'assets/portrait-hero.jpg';
+        document.head.appendChild(preloadHero);
+      });
+    }
 
     const goPortfolio = () => {
       if (document.body.classList.contains('is-entering')) return;
